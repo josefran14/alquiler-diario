@@ -46,7 +46,7 @@ export const Header = () => {
               color: "#ffffff",
             }}
           >
-            Arriendo Diario Santiago
+            Arriendos Diarios Glady's.C
           </Typography>
         </Box>
       </Toolbar>
