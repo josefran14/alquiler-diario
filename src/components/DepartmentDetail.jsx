@@ -15,7 +15,6 @@ import "yet-another-react-lightbox/styles.css";
 import entrada from "../assets/images/entrada.jpeg";
 import foto1 from "../assets/images/home-estudio.jpg";
 import foto2 from "../assets/images/home-estudio2.jpg";
-import foto3 from "../assets/images/home-estudio3.jpg";
 import foto4 from "../assets/images/home-estudio4.jpg";
 import foto5 from "../assets/images/home-estudio5.jpg";
 import foto6 from "../assets/images/home-estudio6.jpg";
@@ -30,7 +29,7 @@ import BathtubIcon from "@mui/icons-material/Bathtub";
 import HotelIcon from "@mui/icons-material/Hotel";
 import { useNavigate } from "react-router";
 
-const fotos = [entrada, foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8];
+const fotos = [entrada, foto1, foto2, foto4, foto5, foto6, foto7, foto8];
 
 export const DepartmentDetail = () => {
   const [index, setIndex] = useState(-1);
