@@ -11,7 +11,7 @@ export const Info = () => {
           color: "#263238",
         }}
       >
-        Departamento amoblado en Santiago Centro
+        Arriendo Diario en Santiago Centro
       </Typography>
       <Link
         href="https://wa.me/56983311056"
