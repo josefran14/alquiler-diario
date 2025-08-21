@@ -13,13 +13,19 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 import entrada from "../assets/images/entrada.jpeg";
-import foto1 from "../assets/images/home-estudio.jpg";
-import foto2 from "../assets/images/home-estudio2.jpg";
-import foto4 from "../assets/images/home-estudio4.jpg";
-import foto5 from "../assets/images/home-estudio5.jpg";
-import foto6 from "../assets/images/home-estudio6.jpg";
-import foto7 from "../assets/images/home-estudio7.jpg";
-import foto8 from "../assets/images/home-estudio8.jpeg";
+import foto1 from "../assets/images/habitacion/habitacion1.jpeg";
+import foto2 from "../assets/images/habitacion/habitacion2.jpeg";
+import foto4 from "../assets/images/habitacion/habitacion3.jpeg";
+import foto5 from "../assets/images/living/living.jpeg";
+import foto6 from "../assets/images/living/living2.jpeg";
+import foto7 from "../assets/images/living/living3.jpeg";
+import foto8 from "../assets/images/living/living4.jpeg";
+import foto9 from "../assets/images/living/living5.jpeg";
+import foto10 from "../assets/images/living/living6.jpeg";
+import foto11 from "../assets/images/cocina/cocina1.jpeg";
+import foto12 from "../assets/images/cocina/cocina2.jpeg";
+import foto13 from "../assets/images/baño/baño.jpeg";
+import foto14 from "../assets/images/baño/tina.jpeg";
 import visa from "../assets/images/visa.png";
 import mastercard from "../assets/images/mastercard.jpg";
 import mercadoPago from "../assets/images/mercado-pago-logo-vector-2023.png";
@@ -29,15 +35,30 @@ import BathtubIcon from "@mui/icons-material/Bathtub";
 import HotelIcon from "@mui/icons-material/Hotel";
 import { useNavigate } from "react-router";
 
-const fotos = [entrada, foto1, foto2, foto4, foto5, foto6, foto7, foto8];
+const fotos = [
+  entrada,
+  foto1,
+  foto2,
+  foto4,
+  foto5,
+  foto6,
+  foto7,
+  foto8,
+  foto9,
+  foto10,
+  foto11,
+  foto12,
+  foto13,
+  foto14,
+];
 
 export const DepartmentDetail = () => {
   const [index, setIndex] = useState(-1);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleNavigate = () =>{
-    navigate("/")
-  }
+  const handleNavigate = () => {
+    navigate("/");
+  };
 
   return (
     <Box sx={{ p: { xs: 2, md: 4 }, maxWidth: 900, mx: "auto" }}>
@@ -67,26 +88,35 @@ export const DepartmentDetail = () => {
           mt: 2,
         }}
       >
-        Precio: $35.000 por noche
+        Precio: $30.000 - $55.000 por noche(Precio según número de huéspedes)
       </Typography>
       <Grid
         container
-        spacing={2}
-        justifyContent="center"
-        sx={{ mb: 3, maxWidth: 900, mx: "auto" }}
+        spacing={0.5}
+        sx={{
+          mb: 3,
+          maxWidth: 900,
+          mx: "auto",
+          borderRadius: 3,
+          overflow: "hidden",
+          position: "relative",
+        }}
       >
         {/* Imagen principal */}
-        <Grid item xs={12} md={8}>
-          <Paper
-            onClick={() => setIndex(0)}
-            elevation={3}
+        <Grid item xs={12} md={6}>
+          <Box
             sx={{
+              width: "100%",
+              height: { xs: 250, md: 450 },
+              borderRadius: { xs: 2, md: 3 },
               overflow: "hidden",
-              borderRadius: 2,
               cursor: "pointer",
-              height: { xs: 250, sm: 350, md: 450 },
-              "&:hover img": { transform: "scale(1.02)", transition: "0.3s" },
+              "&:hover img": {
+                transform: "scale(1.02)",
+                transition: "transform 0.3s ease",
+              },
             }}
+            onClick={() => setIndex(0)}
           >
             <img
               src={fotos[0]}
@@ -98,58 +128,72 @@ export const DepartmentDetail = () => {
                 display: "block",
               }}
             />
-          </Paper>
+          </Box>
         </Grid>
 
-        {/* 4 miniaturas */}
-        <Grid item xs={12} md={4}>
-          <Grid container spacing={1}>
-            {fotos.slice(1, 5).map((foto, i) => (
-              <Grid item xs={6} key={i + 1}>
-                <Paper
-                  onClick={() => setIndex(i + 1)}
-                  elevation={2}
+        {/* Miniaturas en formato 2x2 */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateRows: "repeat(2, 1fr)",
+            gap: 0.5,
+            height: { xs: "auto", md: 450 },
+          }}
+        >
+          {fotos.slice(1, 5).map((foto, i) => (
+            <Box
+              key={i}
+              sx={{
+                position: "relative",
+                overflow: "hidden",
+                cursor: "pointer",
+                borderRadius: 2,
+                height: { xs: 120, md: "auto" },
+                "&:hover img": {
+                  transform: "scale(1.05)",
+                  transition: "transform 0.3s ease",
+                },
+              }}
+              onClick={() => setIndex(i + 1)}
+            >
+              <img
+                src={foto}
+                alt={`Miniatura ${i + 2}`}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
+
+              {/* Overlay en la última miniatura */}
+              {i === 3 && fotos.length > 5 && (
+                <Box
                   sx={{
-                    overflow: "hidden",
-                    borderRadius: 2,
-                    cursor: "pointer",
-                    height: { xs: 100, sm: 110, md: 110 },
-                    "&:hover img": {
-                      transform: "scale(1.05)",
-                      transition: "0.3s",
-                    },
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "rgba(0,0,0,0.4)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#fff",
+                    fontSize: "1.5rem",
+                    fontWeight: "bold",
                   }}
                 >
-                  <img
-                    src={foto}
-                    alt={`Foto ${i + 2}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                    }}
-                  />
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-
-        {/* Botón para ver todas */}
-        <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-          <Button
-            onClick={() => setIndex(0)}
-            variant="outlined"
-            size="medium"
-            sx={{
-              textTransform: "none",
-              borderRadius: 2,
-              px: 3,
-            }}
-          >
-            Ver todas las fotos
-          </Button>
+                  +{fotos.length - 5}
+                </Box>
+              )}
+            </Box>
+          ))}
         </Grid>
       </Grid>
       {/* Características */}
@@ -177,7 +221,7 @@ export const DepartmentDetail = () => {
         >
           <Chip
             icon={<WorkIcon />}
-            label="Home Estudio"
+            label="Departamento amoblado"
             color="default"
             variant="outlined"
           />
@@ -190,6 +234,12 @@ export const DepartmentDetail = () => {
           <Chip
             icon={<HotelIcon />}
             label="1 Habitación"
+            color="default"
+            variant="outlined"
+          />
+          <Chip
+            icon={<HotelIcon />}
+            label="2 Camas"
             color="default"
             variant="outlined"
           />
@@ -224,9 +274,9 @@ export const DepartmentDetail = () => {
           }}
         >
           Departamento amoblado ubicado en <strong>Zenteno 138</strong>, en el
-          corazón de Santiago Centro. A solo{" "}
-          <strong>2 cuadras del metro Universidad de Chile</strong>, rodeado de
-          supermercados, farmacias, cafeterías y una variada oferta
+          corazón de Santiago Centro. Ideal para familias o grupo de amigos. A
+          solo <strong>2 cuadras del metro Universidad de Chile</strong>,
+          rodeado de supermercados, farmacias, cafeterías y una variada oferta
           gastronómica. Muy cercano a universidades, centros culturales y con{" "}
           <strong>excelente conectividad</strong>. Ideal para una estadía{" "}
           <strong>cómoda</strong>, <strong>segura</strong> y{" "}
@@ -371,8 +421,8 @@ export const DepartmentDetail = () => {
           }}
         >
           Aceptamos <strong>tarjetas de crédito</strong>,{" "}
-          <strong>transferencia bancaria</strong>,<strong> Mercado Pago(Link)</strong>{" "}
-          y <strong>efectivo</strong>.
+          <strong>transferencia bancaria</strong>,
+          <strong> Mercado Pago(Link)</strong> y <strong>efectivo</strong>.
         </Typography>
       </Paper>
       <Box sx={{ textAlign: "center", mt: 4 }}>
