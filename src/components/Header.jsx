@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
-import logo from "../assets/images/logo.jpeg";
+import logo from "../assets/images/logo-arriendo.jpeg";
 import { useNavigate } from "react-router";
 
 export const Header = () => {

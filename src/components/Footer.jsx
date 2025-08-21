@@ -3,7 +3,7 @@ import { WhatsApp, Email } from "@mui/icons-material";
 import visa from "../assets/images/visa.png";
 import mastercard from "../assets/images/mastercard.jpg";
 import mercadoPago from "../assets/images/mercado-pago-logo-vector-2023.png";
-import logo from "../assets/images/logo.jpeg";
+import logo from "../assets/images/logo-arriendo.jpeg";
 
 export const Footer = () => (
   <Box
@@ -105,9 +105,7 @@ export const Footer = () => (
         style={{
           height: 70,
           padding: "6px",
-          backgroundColor: "rgba(255,255,255,0.1)",
           borderRadius: "10px",
-          boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
         }}
       />
     </Box>

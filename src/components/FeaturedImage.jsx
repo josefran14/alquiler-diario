@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import estudioImg from "../assets/images/home-estudio.jpg";
+import estudioImg from "../assets/images/habitacion/habitacion1.jpeg";
 import { Box, Typography, Button } from "@mui/material";
 
 export const FeaturedImage = () => {
@@ -18,7 +18,7 @@ export const FeaturedImage = () => {
         }}
         sx={{
           position: "relative",
-          width: { xs: "90%", sm: "70%", md: "400px" },
+          width: { xs: "90%", sm: "70%", md: "500px" },
           margin: "0 auto",
           overflow: "hidden",
           borderRadius: 2,
@@ -42,7 +42,7 @@ export const FeaturedImage = () => {
       >
         <img
           src={estudioImg}
-          alt="Departamento amoblado en Santiago Centro - Home Estudio"
+          alt="Departamento amoblado en Santiago Centro"
           style={{
             width: "100%",
             height: "auto",
@@ -69,14 +69,17 @@ export const FeaturedImage = () => {
             userSelect: "none",
           }}
         >
-          <Typography variant="subtitle1" fontWeight="bold" mb={0.5}>
-            Home Estudio
-          </Typography>
           <Typography variant="body2" component="p">
             ✔️ 1 Baño
           </Typography>
           <Typography variant="body2" component="p">
-            ✔️ 1 Habitación
+            ✔️ Habitación Principal
+          </Typography>
+          <Typography variant="body2" component="p">
+            ✔️ 2 Camas
+          </Typography>
+          <Typography variant="body2" component="p">
+            ✔️ Ideal para hasta 5 personas
           </Typography>
         </Box>
       </Box>
